@@ -9,7 +9,7 @@ function apiMiddleware() {
     configureServer(server) {
       // Cargamos variables de entorno para que estén disponibles en process.env localmente
       const env = loadEnv(server.config.mode, process.cwd(), '');
-      process.env['chatbot-groq-api-key'] = env['chatbot-groq-api-key'];
+      process.env['chatbot_groq_api_key'] = env['chatbot_groq_api_key'];
 
       server.middlewares.use('/api/chat', async (req, res) => {
         console.log(`[API Middleware] Request: ${req.method} ${req.url}`);

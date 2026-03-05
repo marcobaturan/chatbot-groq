@@ -33,7 +33,7 @@ export default async function handler(req, res) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env['chatbot-groq-api-key']}`
+                'Authorization': `Bearer ${process.env['chatbot_groq_api_key']}`
             },
             body: JSON.stringify({
                 model: 'llama-3.3-70b-versatile',

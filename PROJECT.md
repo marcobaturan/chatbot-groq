@@ -16,7 +16,7 @@ Generative. External LLM (Groq) via REST API call from Vercel serverless functio
 | AI | Groq API — llama-3.3-70b-versatile |
 | Backend | Vercel Serverless Functions (Node.js) |
 | Hosting | Vercel |
-| Repo | GitHub (public, portfolio) |
+| Repo | https://github.com/marcobaturan/chatbot-groq |
 
 ## Technical decisions
 - Groq API key in Vercel environment variable. Never on client.
