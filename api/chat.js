@@ -26,6 +26,13 @@ export default async function handler(req, res) {
         content: 'You are a helpful and concise AI assistant embedded in a website. Answer clearly and briefly. If you do not know something, say so. Do not make up information.'
     };
 
+    // Verificación de la API Key en el entorno
+    const apiKey = process.env['chatbot_groq_api_key'];
+    if (!apiKey) {
+        console.error('ERROR: La variable de entorno chatbot_groq_api_key no está definida.');
+        return res.status(500).json({ error: 'AI service configuration error.' });
+    }
+
     try {
         // Llamada a la API de Groq sin SDK (usando fetch nativo)
         // Regla backend 3 (GROQ_API_KEY desde process.env)
@@ -33,7 +40,7 @@ export default async function handler(req, res) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env['chatbot_groq_api_key']}`
+                'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
                 model: 'llama-3.3-70b-versatile',
